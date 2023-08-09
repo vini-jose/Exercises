@@ -4,10 +4,7 @@
 def inverter_palavra():
     palavra = input("Digite seu nome: ")
     palavra_invertida = palavra[::-1]
+    print(palavra_invertida)
     return palavra_invertida
 
-def imprimir_palavra_invertida():
-    palavra_invertida = inverter_palavra()
-    print(palavra_invertida)
-    
-imprimir_palavra_invertida()
+inverter_palavra()
