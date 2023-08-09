@@ -7,4 +7,4 @@ def get_palavra():
     print(palavra_invertida)
     return palavra_invertida
 
-inverter_palavra()
+get_palavra()
