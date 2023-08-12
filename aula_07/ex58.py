@@ -17,16 +17,3 @@ get_palavra()
 
 
 
-"""            
-def lista_palavras(*args):
-    l_p = [*args]
-    l_p_5 = []
-
-    for i in l_p:
-        if len(i) > 5:
-            l_p_5.append(i)
-    print(l_p_5)
-
-
-lista_palavras('maçã', 'banana', 'abacaxi', 'laranja')            
-"""
