@@ -2,16 +2,7 @@
 # chamar quadrado(2) deve retornar 4.
 
 
-def main():
-    numero = quadrado()
-    print(f"o quadrado do número é {numero}")
+def quadrado(x=2):
+    return print(x**2)
 
-def numero():
-    return int(input("Digite um número: "))
-
-def quadrado():
-    x = numero()
-    x = x**2
-    return x
-
-main()
+quadrado()
