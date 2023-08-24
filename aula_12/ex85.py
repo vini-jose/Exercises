@@ -5,11 +5,20 @@
 # e exiba o nome do aluno< as disciplinas com suas respectivas 
 # notas e a média calculada
 
-disciplinas = {
-    "Historia": [6, 4],
-    "Geografia": [8, 10],
-    "Matematica": [9, 8]
-}
+def get_disciplinas():
+    disciplinas = {}
 
-for disciplina, notas in disciplinas.items():
-    print(disciplina, notas[0], notas[1])
+    nome_aluno = input("Digite o nome do aluno: ")
+
+    for i in range(3):
+        disciplina = input("Digite o nome da disciplina: ")
+        nota1 = float(input("Digite a primeira nota: "))
+        nota2 = float(input("Digite a segunda nota: "))
+        disciplinas[disciplina] = [nota1, nota2]
+
+    for disciplina, notas in disciplinas.items():
+        media_disciplina = sum(notas) / len(notas)
+        print(f"O aluno {nome_aluno} na materia de {disciplina} teve as notas {notas[0]} e {notas[1]} e a media das notas foi: {media_disciplina}") 
+        
+
+get_disciplinas()
