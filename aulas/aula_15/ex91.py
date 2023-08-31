@@ -3,7 +3,21 @@
 class BankAccount:
     def __init__(self, conta, saldo):
         self.conta = conta
-        self.saldo = saldo
+        self._saldo = saldo
+    
+    def __str__(self):
+        return f"Conta: {self.conta} Saldo: {self._saldo}"
+    
+    @property
+    def saldo(self):
+        return self._saldo
+    
+    @saldo.setter
+    def saldo(self, saldo):
+        if self.saldo != saldo:
+            self._saldo = saldo
+        else:
+            print("ERRO")
 
     def sal(self):
         return f"Na conta {self.conta} tem {self.saldo} reais de saldo"
