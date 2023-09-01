@@ -22,7 +22,6 @@ class Retangulo:
     def area(self):
         return self.base * self.altura
         
-        
     def perimetro(self):
         return 2 * (self.base + self.altura)
     
