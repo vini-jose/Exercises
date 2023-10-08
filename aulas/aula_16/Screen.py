@@ -2,47 +2,48 @@
 #-PysimpleGUI ou Tkinter
 
 import PySimpleGUI as sg
+from random import choice
 import Aluno
-import random 
 
 # Layout
-sg.theme("Reddit")
+sg.theme("Default1")
 
-layout = [[sg.Input(key="nome_aluno", size=(40, 1))],
-          [sg.Button("Adicionar"), sg.Button("Remover"), sg.Button("Nome aleatório"), sg.Button("Lista")],
-          [sg.Output(key="output",size=(38,10))]
-        ]
+layout = [
+    [sg.Input(key="nome_aluno", size=(40, 1))],
+    [sg.Button("Adicionar"), sg.Button("Remover"), sg.Button("Nome aleatório"), sg.Button("Lista")],
+    [sg.Output(key="output", size=(38, 10))]
+]
 
-#Janela
-window = sg.Window("Lista de aluno", layout)
+# Janela
+window = sg.Window("Lista de alunos", layout)
 lista = []
 
-
-#Ler ps eventos
+# Ler os eventos
 while True:
-    eventos,valores=window.read()
-    if eventos == sg.WIN_CLOSED:
-        window.close()
+    eventos, valores = window.read()
+    if eventos == sg.WINDOW_CLOSED:
         break
 
     if eventos == "Lista":
-        list_student=open("aluno.txt")
-        leitura_texto=list_student.read()
-        name = list(map(str,leitura_texto.split("\n")))
+        with open("aulas/aula_16/aluno.txt", "r") as file:
+            leitura_texto = file.read()
+            name = leitura_texto.split("\n")
         window["output"].update("\n".join(name))
 
-    if eventos == "Nome aleatorio":
-        window["output"].update((random.choice(name)))
-        
+    if eventos == "Nome aleatório":
+        Aluno.nome_random(name, window["output"])
+
     if eventos == "Adicionar":
         request = valores["nome_aluno"]
         if request:
-            Aluno.adicionar_aluno(lista,request,window)
-    
+            Aluno.adicionar_aluno(lista, request, window["output"])
+
     if eventos == "Remover":
         removerrrr = valores["nome_aluno"]
-        if request in name:
-            Aluno.remover(name,removerrrr,window)
+        if removerrrr in name:
+            Aluno.remover(name, removerrrr, window["output"])
+
+window.close()
 
 
 

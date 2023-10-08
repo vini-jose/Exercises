@@ -1,16 +1,16 @@
-from random import choice
+import random
 
-def words_random(list,saida):
-    saida["b"].update("\n",choice(list))
+def nome_random(lista, saida):
+    saida.update("\n" + random.choice(lista))
 
-def adicionar_aluno(lista,insert,saida):
+def adicionar_aluno(lista, insert, saida):
     lista.append(insert)
-    file=open("List_Student/alunos.txt","a")
-    file.write("\n"+ insert)
-    saida["b"].update("\n".join(lista))
-  
-def remover(lista,delete_name,saida):
+    with open("aulas/aula_16/aluno.txt", "a") as file:
+        file.write("\n" + insert)
+    saida.update("\n".join(lista))
+
+def remover(lista, delete_name, saida):
     lista.remove(delete_name)
-    with open("List_Student/alunos.txt","w") as file:
-        file.write("")
-    saida["b"].update("\n".join(lista))
+    with open("aulas/aula_16/aluno.txt", "w") as file:
+        file.write("\n".join(lista))
+    saida.update("\n".join(lista))
